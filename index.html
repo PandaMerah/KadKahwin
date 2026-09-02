@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Walimatulurus | Hazim & Afifah</title>
+    
+    <meta property="og:title" content="Majlis Perkahwinan Hazim & Afifah">
+    <meta property="og:description" content="Sabtu, 15 Ogos 2026 | Sila tekan pautan untuk maklumat lanjut dan RSVP.">
+    <meta property="og:image" content="./assets/images/slider-1.webp">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <div id="cover-overlay" class="cover-overlay">
+        <div class="cover-content">
+            <img src="./assets/images/bismillah.svg" alt="Bismillah" class="bismillah-img">
+            <p class="sub-heading">WALIMATULURUS</p>
+            <h1 class="couple-names">Hazim & Afifah</h1>
+            <p class="date-text">Sabtu, 15 Ogos 2026</p>
+            <button id="btn-open-card" class="btn-primary">
+                <i class="fa-solid fa-envelope-open"></i> Buka Undangan
+            </button>
+        </div>
+    </div>
+
+    <div class="main-wrapper">
+
+        <audio id="wedding-audio" loop preload="auto">
+            <source src="./assets/audio/wedding-song.mp3" type="audio/mpeg">
+        </audio>
+        <button id="music-toggle" class="music-btn spinning">
+            <i class="fa-solid fa-music"></i>
+        </button>
+
+        <section id="home" class="section hero-section">
+            <div class="border-frame">
+                <img src="./assets/images/kerawang.svg" class="kerawang top" alt="Decoration">
+                <p class="greeting-subtitle">UNDANGAN WALIMATULURUS</p>
+                <h1 class="hero-title">Hazim <br><span class="ampersand">&</span><br> Afifah</h1>
+                <p class="hero-date"><i class="fa-regular fa-calendar"></i> Sabtu, 15 Ogos 2026</p>
+                <img src="./assets/images/kerawang.svg" class="kerawang bottom" alt="Decoration">
+            </div>
+        </section>
+
+        <section class="section countdown-section">
+            <h2 class="section-title">Hasrat Menghitung Hari</h2>
+            <div class="timer-grid" id="timer">
+                <div class="time-card"><span id="days">00</span><small>Hari</small></div>
+                <div class="time-card"><span id="hours">00</span><small>Jam</small></div>
+                <div class="time-card"><span id="minutes">00</span><small>Minit</small></div>
+                <div class="time-card"><span id="seconds">00</span><small>Saat</small></div>
+            </div>
+        </section>
+
+        <section id="event" class="section info-section">
+            <h2 class="section-title">Maklumat Majlis</h2>
+            <p class="invite-text">
+                Dengan penuh kesyukuran ke hadrat Allah SWT, kami menjemput Dato' / Datin / Tuan / Puan / Encik / Cik sekeluarga ke majlis perkahwinan kami.
+            </p>
+
+            <div class="info-card">
+                <h3><i class="fa-solid fa-clock"></i> Masa & Tarikh</h3>
+                <p><strong>Tarikh:</strong> Sabtu, 15 Ogos 2026</p>
+                <p><strong>Masa:</strong> 11:00 Pagi - 4:00 Petang</p>
+                <p><strong>Ketibaan Pengantin:</strong> 12:30 Tengah Hari</p>
+            </div>
+
+            <div class="info-card">
+                <h3><i class="fa-solid fa-location-dot"></i> Lokasi</h3>
+                <p><strong>Lanai Asmara Event Hall</strong></p>
+                <p>Shah Alam, Selangor</p>
+                <div class="map-buttons">
+                    <a href="https://maps.google.com/?q=Shah+Alam+Selangor" target="_blank" class="btn-secondary">
+                        <i class="fa-map-location-dot fab"></i> Google Maps
+                    </a>
+                    <a href="https://waze.com/ul?q=Shah+Alam+Selangor" target="_blank" class="btn-secondary">
+                        <i class="fa-brands fa-waze"></i> Waze
+                    </a>
+                </div>
+            </div>
+
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Majlis+Perkahwinan+Hazim+%26+Afifah&dates=20260815T030000Z/20260815T080000Z&details=Undangan+Majlis+Perkahwinan&location=Lanai+Asmara" target="_blank" class="btn-outline">
+                <i class="fa-regular fa-calendar-plus"></i> Simpan ke Kalendar
+            </a>
+        </section>
+
+        <section class="section contact-section">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <div class="contact-list">
+                <a href="https://wa.me/60123456789?text=Assalamualaikum" target="_blank" class="contact-item">
+                    <span>Bapa Pengantin (En. Ahmad)</span>
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="https://wa.me/60198765432?text=Assalamualaikum" target="_blank" class="contact-item">
+                    <span>Ibu Pengantin (PnM. Aminah)</span>
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
+        </section>
+
+        <section id="rsvp" class="section rsvp-section">
+            <h2 class="section-title">Borang Kehadiran (RSVP)</h2>
+            <form id="rsvp-form" class="card-form">
+                <div class="form-group">
+                    <label>Nama Penuh</label>
+                    <input type="text" id="rsvp-name" placeholder="Nama anda" required>
+                </div>
+                <div class="form-group">
+                    <label>Status Kehadiran</label>
+                    <select id="rsvp-status" required>
+                        <option value="Hadir">Hadir</option>
+                        <option value="Tidak Hadir">Tidak Hadir</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Jumlah Tetamu</label>
+                    <input type="number" id="rsvp-pax" min="1" max="10" value="1" required>
+                </div>
+                <button type="submit" class="btn-primary full-width">Hantar RSVP</button>
+            </form>
+        </section>
+
+        <section id="guestbook" class="section guestbook-section">
+            <h2 class="section-title">Ucapan & Doa</h2>
+            <form id="guestbook-form" class="card-form">
+                <div class="form-group">
+                    <input type="text" id="wish-name" placeholder="Nama Anda" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="wish-message" rows="3" placeholder="Titipkan doa & ucapan..." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary full-width">Kirim Ucapan</button>
+            </form>
+
+            <div class="wishes-container" id="wishes-list">
+                </div>
+        </section>
+
+        <section class="section gift-section">
+            <h2 class="section-title">Salam Kaut / Hadiah</h2>
+            <p>Bagi yang ingin memberikan hadiah atau salam kaut secara dalam talian:</p>
+            <div class="gift-card">
+                <p><strong>Maybank</strong></p>
+                <p class="account-number">1623 4567 8901</p>
+                <p>Hazim Bin Ahmad</p>
+                <button onclick="navigator.clipboard.writeText('162345678901'); alert('No Akaun Disalin!');" class="btn-sm">
+                    <i class="fa-regular fa-copy"></i> Salin Akaun
+                </button>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>Hazim & Afifah &copy; 2026. Made for Vercel.</p>
+        </footer>
+
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="#home" class="nav-item active"><i class="fa-solid fa-house"></i><span>Utama</span></a>
+        <a href="#event" class="nav-item"><i class="fa-solid fa-calendar-days"></i><span>Majlis</span></a>
+        <a href="#rsvp" class="nav-item"><i class="fa-solid fa-clipboard-user"></i><span>RSVP</span></a>
+        <a href="#guestbook" class="nav-item"><i class="fa-solid fa-comment-dots"></i><span>Ucapan</span></a>
+    </nav>
+
+    <script src="./js/app.js"></script>
+</body>
+</html>
