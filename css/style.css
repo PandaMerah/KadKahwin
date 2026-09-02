@@ -1,9 +1,10 @@
 :root {
-    --primary-color: #8D7B68;
-    --secondary-color: #A8927A;
-    --accent-color: #D0B8A8;
-    --bg-color: #FDFBF7;
-    --text-color: #3F3A36;
+    /* Paste the colors from your original template here */
+    --primary-color: #A97C50; 
+    --secondary-color: #C39B77;
+    --accent-color: #E2C9B1;
+    --bg-color: #FAFAFA;
+    --text-color: #333333;
     --white: #FFFFFF;
     --shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
@@ -22,6 +23,20 @@ body {
     display: flex;
     justify-content: center;
     min-height: 100vh;
+    /* Improved Line Spacing */
+    line-height: 1.8;
+    letter-spacing: 0.3px;
+}
+
+p {
+    /* More space between paragraphs */
+    margin-bottom: 12px; 
+}
+
+/* Ensure headings have breathing room */
+h1, h2, h3 {
+    line-height: 1.4;
+    margin-bottom: 15px;
 }
 
 /* Limit max width to mimic mobile screen view on Desktop */
@@ -142,3 +157,10 @@ body {
 }
 .nav-item { text-decoration: none; color: #888; font-size: 0.75rem; display: flex; flex-direction: column; align-items: center; gap: 4px; }
 .nav-item.active, .nav-item:hover { color: var(--primary-color); font-weight: 600; }
+
+.footer {
+    text-align: center;
+    padding: 30px;
+    font-size: 0.8rem;
+    color: #888;
+}

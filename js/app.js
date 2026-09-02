@@ -1,8 +1,55 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // PASTE YOUR DEPLOYED WEB APP URL HERE
+    
+    // --- 1. INJECT CONFIG DATA INTO HTML ---
+    function populateConfigData() {
+        document.getElementById('page-title').innerText = `Walimatulurus | ${weddingInfo.shortName}`;
+        document.getElementById('cover-names').innerText = weddingInfo.shortName;
+        document.getElementById('cover-date').innerText = weddingInfo.dateDisplay;
+        
+        document.getElementById('hero-names').innerHTML = `${weddingInfo.groom} <br><span class="ampersand">&</span><br> ${weddingInfo.bride}`;
+        document.getElementById('hero-date').innerText = weddingInfo.dateDisplay;
+        
+        document.getElementById('info-date').innerText = weddingInfo.dateDisplay;
+        document.getElementById('info-time').innerText = weddingInfo.timeDisplay;
+        document.getElementById('info-arrival').innerText = weddingInfo.brideArrival;
+        
+        document.getElementById('info-hall').innerText = weddingInfo.hallName;
+        document.getElementById('info-address').innerText = weddingInfo.hallAddress;
+        
+        document.getElementById('link-google').href = weddingInfo.mapLinks.google;
+        document.getElementById('link-waze').href = weddingInfo.mapLinks.waze;
+        document.getElementById('link-calendar').href = weddingInfo.mapLinks.calendar;
+
+        // Populate Contacts
+        const contactContainer = document.getElementById('contact-list-container');
+        contactContainer.innerHTML = weddingInfo.contacts.map(contact => `
+            <a href="https://wa.me/${contact.phone}?text=Assalamualaikum" target="_blank" class="contact-item">
+                <span>${contact.name}</span>
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+        `).join('');
+
+        // Populate Bank Info
+        document.getElementById('bank-name').innerText = weddingInfo.bank.name;
+        document.getElementById('bank-acc').innerText = weddingInfo.bank.accountNo;
+        document.getElementById('bank-holder').innerText = weddingInfo.bank.accountHolder;
+
+        document.getElementById('footer-year').innerText = new Date().getFullYear();
+
+        document.getElementById('btn-copy-acc').addEventListener('click', () => {
+            navigator.clipboard.writeText(weddingInfo.bank.accountNo);
+            alert('No Akaun Disalin!');
+        });
+    }
+    
+    // Run the populator
+    populateConfigData();
+
+
+    // --- 2. BACKEND API & UI LOGIC (Keep previous code below) ---
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby_6MY4kjRxzIrlSf0tKFq2OzT8ZsIrTjgu1ghv7H-HLhnISVsuNvFjluH9mLjQVYVO/exec";
 
-    // 1. Audio & Cover Controls
+    // Audio & Cover Controls
     const btnOpen = document.getElementById('btn-open-card');
     const overlay = document.getElementById('cover-overlay');
     const audio = document.getElementById('wedding-audio');
@@ -33,8 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Countdown Timer
-    const eventDate = new Date('August 15, 2026 11:00:00').getTime();
+    // Countdown Timer (Using config data)
+    const eventDate = new Date(weddingInfo.countdownDate).getTime();
     const updateCountdown = () => {
         const now = new Date().getTime();
         const diff = eventDate - now;
