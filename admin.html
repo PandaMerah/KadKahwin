@@ -7,55 +7,73 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
-        body { background: #f4f5f7; padding: 20px; color: #333; margin: 0; }
-        .admin-card { max-width: 600px; margin: auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        h2 { text-align: center; color: #8D7B68; margin-bottom: 20px; }
-        .form-group { margin-bottom: 15px; }
-        label { font-size: 0.85rem; font-weight: 700; display: block; margin-bottom: 5px; color: #555; }
-        input, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; }
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .btn-save { width: 100%; background: #8D7B68; color: white; padding: 12px; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; margin-top: 15px; }
-        .btn-secondary { width: 100%; background: #eee; color: #333; padding: 10px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; margin-top: 8px; text-decoration: none; display: block; text-align: center; }
-        .status-msg { margin-top: 10px; text-align: center; font-size: 0.85rem; color: #28a745; display: none; }
+        body { background: #F4F5F7; padding: 20px; color: #333; margin: 0; }
+        .admin-card { max-width: 680px; margin: auto; background: white; padding: 30px; border-radius: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        h2 { text-align: center; color: #8D7B68; margin-bottom: 25px; }
+        .section-header { font-size: 0.95rem; font-weight: 700; color: #8D7B68; border-bottom: 2px solid #EFEAE4; padding-bottom: 6px; margin: 20px 0 12px 0; }
+        .form-group { margin-bottom: 14px; }
+        label { font-size: 0.82rem; font-weight: 700; display: block; margin-bottom: 5px; color: #444; }
+        input, textarea { width: 100%; padding: 10px 12px; border: 1px solid #DCDCDC; border-radius: 6px; font-size: 0.9rem; }
+        input:focus, textarea:focus { border-color: #8D7B68; outline: none; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .btn-save { width: 100%; background: #8D7B68; color: white; padding: 12px; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; margin-top: 20px; font-size: 1rem; }
+        .btn-secondary { width: 100%; background: #EFEAE4; color: #444; padding: 10px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 8px; text-decoration: none; display: block; text-align: center; font-size: 0.9rem; }
+        .status-msg { margin-top: 12px; text-align: center; font-size: 0.88rem; color: #28a745; font-weight: 600; display: none; }
     </style>
 </head>
 <body>
 
 <div class="admin-card">
-    <h2>Editor Kad Kahwin Instant</h2>
+    <h2>Editor Maklumat Kad Kahwin</h2>
     <form id="admin-form">
+
+        <div class="section-header">Maklumat Pengantin</div>
         <div class="grid-2">
             <div class="form-group">
-                <label>Nama Ringkas Pengantin Lelaki</label>
-                <input type="text" id="groom" required>
+                <label>Nama Penuh Lelaki</label>
+                <input type="text" id="groomFullName" required>
             </div>
             <div class="form-group">
-                <label>Nama Ringkas Pengantin Perempuan</label>
+                <label>Nama Ringkas Lelaki</label>
+                <input type="text" id="groom" required>
+            </div>
+        </div>
+        <div class="grid-2">
+            <div class="form-group">
+                <label>Nama Penuh Perempuan</label>
+                <input type="text" id="brideFullName" required>
+            </div>
+            <div class="form-group">
+                <label>Nama Ringkas Perempuan</label>
                 <input type="text" id="bride" required>
             </div>
         </div>
 
-        <div class="form-group">
-            <label>Tuan Rumah / Ibu Bapa</label>
-            <input type="text" id="host" required>
-        </div>
-
-        <div class="form-group">
-            <label>Turut Mengundang</label>
-            <input type="text" id="specialInvite">
-        </div>
-
+        <div class="section-header">Tuan Rumah & Mengundang</div>
         <div class="grid-2">
             <div class="form-group">
-                <label>Tarikh Paparan</label>
+                <label>Nama Bapa Pengantin</label>
+                <input type="text" id="hostFather" required>
+            </div>
+            <div class="form-group">
+                <label>Turut Mengundang (Anak)</label>
+                <input type="text" id="hostSon">
+            </div>
+        </div>
+
+        <div class="section-header">Tarikh & Masa Majlis</div>
+        <div class="grid-2">
+            <div class="form-group">
+                <label>Paparan Tarikh</label>
                 <input type="text" id="dateDisplay" required>
             </div>
             <div class="form-group">
-                <label>Masa Jamuan</label>
-                <input type="text" id="timeDisplay" required>
+                <label>Tarikh Countdown (YYYY-MM-DD HH:MM:SS)</label>
+                <input type="text" id="countdownDate" required>
             </div>
         </div>
 
+        <div class="section-header">Atur Cara Majlis</div>
         <div class="grid-2">
             <div class="form-group">
                 <label>Masa Akad Nikah</label>
@@ -63,18 +81,34 @@
             </div>
             <div class="form-group">
                 <label>Lokasi Akad Nikah</label>
-                <input type="text" id="nikahLocation">
+                <input type="text" id="nikahLoc">
+            </div>
+        </div>
+        <div class="grid-2">
+            <div class="form-group">
+                <label>Masa Jamuan Makan</label>
+                <input type="text" id="receptionTime">
+            </div>
+            <div class="form-group">
+                <label>Lokasi Jamuan</label>
+                <input type="text" id="receptionLoc">
             </div>
         </div>
 
+        <div class="section-header">Lokasi Majlis</div>
         <div class="form-group">
-            <label>Alamat Penuh Majlis</label>
+            <label>Nama Dewan / Lokasi</label>
+            <input type="text" id="hallName" required>
+        </div>
+        <div class="form-group">
+            <label>Alamat Penuh</label>
             <textarea id="hallAddress" rows="2" required></textarea>
         </div>
 
+        <div class="section-header">Salam Kaut / Banking</div>
         <div class="grid-2">
             <div class="form-group">
-                <label>Nama Bank (Salam Kaut)</label>
+                <label>Nama Bank</label>
                 <input type="text" id="bankName">
             </div>
             <div class="form-group">
@@ -82,64 +116,100 @@
                 <input type="text" id="bankAcc">
             </div>
         </div>
+        <div class="form-group">
+            <label>Nama Pemegang Akaun</label>
+            <input type="text" id="bankHolder">
+        </div>
 
         <button type="submit" class="btn-save">Simpan Perubahan</button>
-        <a href="index.html" target="_blank" class="btn-secondary">Buka Kad Kahwin (Pratonton)</a>
-        <button type="button" id="btn-reset" class="btn-secondary" style="color: #dc3545;">Reset ke Asal</button>
-        <div id="status" class="status-msg">Maklumat berjaya dikemas kini!</div>
+        <a href="index.html" target="_blank" class="btn-secondary">Lihat Kad Kahwin (Live)</a>
+        <button type="button" id="btn-reset" class="btn-secondary" style="color: #dc3545;">Reset Ke Tetapan Asal</button>
+        <div id="status" class="status-msg">Maklumat berjaya disimpan!</div>
     </form>
 </div>
 
 <script src="./js/config.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const currentConfig = getWeddingConfig();
+        const config = getWeddingConfig();
 
-        // Fill current form values
-        document.getElementById('groom').value = currentConfig.groom;
-        document.getElementById('bride').value = currentConfig.bride;
-        document.getElementById('host').value = currentConfig.host;
-        document.getElementById('specialInvite').value = currentConfig.specialInvite || '';
-        document.getElementById('dateDisplay').value = currentConfig.dateDisplay;
-        document.getElementById('timeDisplay').value = currentConfig.timeDisplay;
-        document.getElementById('nikahTime').value = currentConfig.nikahTime || '';
-        document.getElementById('nikahLocation').value = currentConfig.nikahLocation || '';
-        document.getElementById('hallAddress').value = currentConfig.hallAddress;
-        document.getElementById('bankName').value = currentConfig.bank.name;
-        document.getElementById('bankAcc').value = currentConfig.bank.accountNo;
+        // Populate fields from config.js
+        document.getElementById('groomFullName').value = config.groomFullName || '';
+        document.getElementById('groom').value = config.groom || '';
+        document.getElementById('brideFullName').value = config.brideFullName || '';
+        document.getElementById('bride').value = config.bride || '';
+        
+        document.getElementById('hostFather').value = config.hostFather || '';
+        document.getElementById('hostSon').value = config.hostSon || '';
+        
+        document.getElementById('dateDisplay').value = config.dateDisplay || '';
+        document.getElementById('countdownDate').value = config.countdownDate || '';
 
-        // Save action
+        if (config.tentative && config.tentative.length >= 2) {
+            document.getElementById('nikahTime').value = config.tentative[0].time || '';
+            document.getElementById('nikahLoc').value = config.tentative[0].location || '';
+            document.getElementById('receptionTime').value = config.tentative[1].time || '';
+            document.getElementById('receptionLoc').value = config.tentative[1].location || '';
+        }
+
+        document.getElementById('hallName').value = config.hallName || '';
+        document.getElementById('hallAddress').value = config.hallAddress || '';
+
+        document.getElementById('bankName').value = config.bank ? config.bank.name : '';
+        document.getElementById('bankAcc').value = config.bank ? config.bank.accountNo : '';
+        document.getElementById('bankHolder').value = config.bank ? config.bank.accountHolder : '';
+
+        // Save logic
         document.getElementById('admin-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            
-            const updated = {
-                ...currentConfig,
+
+            const updatedConfig = {
+                ...config,
+                groomFullName: document.getElementById('groomFullName').value,
                 groom: document.getElementById('groom').value,
+                brideFullName: document.getElementById('brideFullName').value,
                 bride: document.getElementById('bride').value,
                 shortName: `${document.getElementById('groom').value} & ${document.getElementById('bride').value}`,
-                host: document.getElementById('host').value,
-                specialInvite: document.getElementById('specialInvite').value,
+                
+                hostFather: document.getElementById('hostFather').value,
+                hostSon: document.getElementById('hostSon').value,
+                
                 dateDisplay: document.getElementById('dateDisplay').value,
-                timeDisplay: document.getElementById('timeDisplay').value,
-                nikahTime: document.getElementById('nikahTime').value,
-                nikahLocation: document.getElementById('nikahLocation').value,
+                countdownDate: document.getElementById('countdownDate').value,
+                
+                tentative: [
+                    {
+                        time: document.getElementById('nikahTime').value,
+                        event: "Majlis Akad Nikah",
+                        location: document.getElementById('nikahLoc').value
+                    },
+                    {
+                        time: document.getElementById('receptionTime').value,
+                        event: "Jamuan Makan",
+                        location: document.getElementById('receptionLoc').value
+                    }
+                ],
+
+                hallName: document.getElementById('hallName').value,
                 hallAddress: document.getElementById('hallAddress').value,
+
                 bank: {
-                    ...currentConfig.bank,
                     name: document.getElementById('bankName').value,
-                    accountNo: document.getElementById('bankAcc').value
+                    accountNo: document.getElementById('bankAcc').value,
+                    accountHolder: document.getElementById('bankHolder').value
                 }
             };
 
-            localStorage.setItem('weddingCardConfig', JSON.stringify(updated));
+            localStorage.setItem('weddingCardConfig', JSON.stringify(updatedConfig));
+            
             const status = document.getElementById('status');
             status.style.display = 'block';
             setTimeout(() => status.style.display = 'none', 3000);
         });
 
-        // Reset action
+        // Reset logic
         document.getElementById('btn-reset').addEventListener('click', () => {
-            if(confirm("Adakah anda pasti untuk reset semula maklumat ke tetapan asal?")) {
+            if (confirm("Adakah anda pasti untuk reset semula maklumat ke asal?")) {
                 localStorage.removeItem('weddingCardConfig');
                 location.reload();
             }

@@ -52,37 +52,54 @@
             </div>
         </section>
 
-        <section id="event" class="section info-section">
+        <!-- Section 1: Undangan Majlis -->
+        <section id="invitation" class="section invitation-section">
             <h2 class="section-title">Undangan Majlis</h2>
             
-            <!-- Full Names & Invitation Message -->
             <div class="invite-hosts">
                 <p class="host-names">
                     <strong id="host-father"></strong><br>
                     <span class="and-text">&</span><br>
                     <strong id="host-son"></strong>
                 </p>
+                
                 <p class="invite-text">
                     Dengan penuh kesyukuran ke hadrat Allah SWT, kami menjemput Dato' / Datin / Tuan / Puan / Encik / Cik sekeluarga ke majlis perkahwinan:
                 </p>
-                <div class="couple-full-names">
-                    <h3 id="groom-full-name" class="full-name-text"></h3>
-                    <p class="ampersand-sm">&</p>
-                    <h3 id="bride-full-name" class="full-name-text"></h3>
+
+                <!-- Aesthetic Couple Full Name Box -->
+                <div class="couple-card-box">
+                    <div class="couple-card-inner">
+                        <span class="label-badge">PENGANTIN LELAKI</span>
+                        <h3 id="groom-full-name" class="full-name-text"></h3>
+                        
+                        <div class="ampersand-divider">
+                            <span class="line"></span>
+                            <span class="ampersand-symbol">&</span>
+                            <span class="line"></span>
+                        </div>
+                        
+                        <span class="label-badge">PENGANTIN PEREMPUAN</span>
+                        <h3 id="bride-full-name" class="full-name-text"></h3>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Atur Cara Majlis (Tentative) -->
+        <!-- Section 2: Atur Cara Majlis -->
+        <section id="schedule" class="section schedule-section">
+            <h2 class="section-title">Atur Cara Majlis</h2>
             <div class="info-card">
-                <h3><i class="fa-solid fa-list-check"></i> Atur Cara Majlis</h3>
                 <ul id="tentative-list" class="tentative-list">
-                    <!-- Injected via JavaScript -->
+                    <!-- Dynamically loaded -->
                 </ul>
             </div>
+        </section>
 
-            <!-- Location Card -->
+        <!-- Section 3: Lokasi Majlis -->
+        <section id="location" class="section location-section">
+            <h2 class="section-title">Lokasi Majlis</h2>
             <div class="info-card">
-                <h3><i class="fa-solid fa-location-dot"></i> Lokasi Majlis</h3>
                 <p><strong id="info-hall"></strong></p>
                 <p id="info-address"></p>
                 <div class="map-buttons">

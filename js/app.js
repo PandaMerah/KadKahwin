@@ -4,12 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function populateConfigData() {
         const config = getWeddingConfig();
 
-        // Page titles & Overlay
         document.getElementById('page-title').innerText = `Walimatulurus | ${config.shortName}`;
         document.getElementById('cover-names').innerText = config.shortName;
         document.getElementById('cover-date').innerText = config.dateDisplay;
         
-        // Hero Names
         document.getElementById('hero-names').innerHTML = `${config.groom} <br><span class="ampersand">&</span><br> ${config.bride}`;
         document.getElementById('hero-date').innerText = config.dateDisplay;
         
@@ -17,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('groom-full-name').innerText = config.groomFullName;
         document.getElementById('bride-full-name').innerText = config.brideFullName;
         document.getElementById('host-father').innerText = config.hostFather;
-        document.getElementById('host-son').innerText = `${config.hostSon} (Anak)`;
+        document.getElementById('host-son').innerText = config.hostSon ? `${config.hostSon} (Anak)` : '';
 
         // Atur Cara Majlis (Tentative) List
         const tentativeList = document.getElementById('tentative-list');

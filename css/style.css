@@ -95,7 +95,13 @@ h1, h2, h3 {
 .btn-sm { background: var(--primary-color); color: white; border: none; padding: 6px 12px; border-radius: 5px; cursor: pointer; }
 
 /* Sections */
-.section { padding: 40px 20px; text-align: center; border-bottom: 1px solid #EFEAE4; }
+/* Uniform Gap & Padding for All Sections */
+.section {
+    padding: 50px 24px;
+    margin: 0;
+    border-bottom: 1px solid rgba(141, 123, 104, 0.12);
+    text-align: center;
+}.section { padding: 40px 20px; text-align: center; border-bottom: 1px solid #EFEAE4; }
 .hero-section { padding: 60px 20px; }
 .border-frame { border: 2px dashed var(--secondary-color); padding: 30px 15px; border-radius: 15px; }
 .hero-title { font-family: 'Alex Brush', cursive; font-size: 3.5rem; color: var(--primary-color); line-height: 1.2; margin: 15px 0; }
@@ -170,6 +176,78 @@ h1, h2, h3 {
     color: var(--primary-color);
     margin-bottom: 15px;
     line-height: 1.5;
+}
+
+.couple-card-box {
+    margin: 25px 0 10px 0;
+    padding: 2px;
+    background: linear-gradient(135deg, #D0B8A8 0%, #8D7B68 50%, #D0B8A8 100%);
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(141, 123, 104, 0.15);
+}
+
+.label-badge {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--primary-color);
+    background: rgba(141, 123, 104, 0.08);
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+.full-name-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #2D2722;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    margin: 4px 0 12px 0;
+}
+
+.ampersand-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+    gap: 12px;
+}
+
+.ampersand-divider .line {
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
+}
+
+.ampersand-symbol {
+    font-family: 'Alex Brush', cursive;
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+/* Host Names Layout */
+.host-names {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--primary-color);
+    margin-bottom: 16px;
+}
+
+.and-text {
+    font-family: 'Alex Brush', cursive;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+.couple-card-inner {
+    background: #FAF6F0;
+    padding: 25px 18px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    position: relative;
 }
 
 .couple-full-names {
