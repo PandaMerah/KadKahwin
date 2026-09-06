@@ -1,24 +1,24 @@
 const defaultConfig = {
-    // Couple Details
+    // Full Names & Short Names
     groom: "Rusdi",
     groomFullName: "Rusdi Bin Rajimin",
     bride: "Norhafizah",
     brideFullName: "Norhafizah Binti Hamzah",
     shortName: "Rusdi & Norhafizah",
     
-    // Hosts & Special Invites
-    host: "Hamzah Bin Selamat",
-    specialInvite: "Muhammah Suffian Bin Barudin (Anak)",
+    // Hosts
+    hostFather: "HAMZAH BIN SELAMAT",
+    hostSon: "MUHAMMAD SUFFIAN BIN BARUDIN",
     
-    // Date & Time Details
+    // Event Dates & Schedule
     dateDisplay: "Sabtu, 12 Disember 2026",
     countdownDate: "December 12, 2026 10:00:00",
-    timeDisplay: "11:00 Pagi - 4:00 Petang",
     
-    // Program Schedule
-    nikahTime: "10:00 Pagi",
-    nikahLocation: "Masjid As-Syarif Pekan Meru",
-    receptionTime: "11:00 Pagi - 4:00 Petang",
+    // Tentative / Atur Cara
+    tentative: [
+        { time: "10:00 Pagi", event: "Majlis Akad Nikah", location: "Masjid As-Syarif Pekan Meru" },
+        { time: "11:00 Pagi - 4:00 Petang", event: "Jamuan Makan", location: "Kediaman Pengantin" }
+    ],
     
     // Location
     hallName: "Kediaman Pengantin",
@@ -32,10 +32,10 @@ const defaultConfig = {
     // Contacts
     contacts: [
         { name: "Hamzah Bin Selamat", phone: "60123456789" },
-        { name: "Muhammah Suffian", phone: "60198765432" }
+        { name: "Muhammad Suffian", phone: "60198765432" }
     ],
 
-    // Banking Info
+    // Bank
     bank: {
         name: "Maybank",
         accountNo: "162345678901",
@@ -43,7 +43,6 @@ const defaultConfig = {
     }
 };
 
-// Retrieve updated config from localStorage if edited via website, else fallback to default
 const getWeddingConfig = () => {
     const saved = localStorage.getItem('weddingCardConfig');
     return saved ? JSON.parse(saved) : defaultConfig;

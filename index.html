@@ -53,20 +53,36 @@
         </section>
 
         <section id="event" class="section info-section">
-            <h2 class="section-title">Maklumat Majlis</h2>
-            <p class="invite-text">
-                Dengan penuh kesyukuran ke hadrat Allah SWT, kami menjemput Dato' / Datin / Tuan / Puan / Encik / Cik sekeluarga ke majlis perkahwinan kami.
-            </p>
-
-            <div class="info-card">
-                <h3><i class="fa-solid fa-clock"></i> Masa & Tarikh</h3>
-                <p><strong>Tarikh:</strong> <span id="info-date"></span></p>
-                <p><strong>Masa:</strong> <span id="info-time"></span></p>
-                <p><strong>Ketibaan Pengantin:</strong> <span id="info-arrival"></span></p>
+            <h2 class="section-title">Undangan Majlis</h2>
+            
+            <!-- Full Names & Invitation Message -->
+            <div class="invite-hosts">
+                <p class="host-names">
+                    <strong id="host-father"></strong><br>
+                    <span class="and-text">&</span><br>
+                    <strong id="host-son"></strong>
+                </p>
+                <p class="invite-text">
+                    Dengan penuh kesyukuran ke hadrat Allah SWT, kami menjemput Dato' / Datin / Tuan / Puan / Encik / Cik sekeluarga ke majlis perkahwinan:
+                </p>
+                <div class="couple-full-names">
+                    <h3 id="groom-full-name" class="full-name-text"></h3>
+                    <p class="ampersand-sm">&</p>
+                    <h3 id="bride-full-name" class="full-name-text"></h3>
+                </div>
             </div>
 
+            <!-- Atur Cara Majlis (Tentative) -->
             <div class="info-card">
-                <h3><i class="fa-solid fa-location-dot"></i> Lokasi</h3>
+                <h3><i class="fa-solid fa-list-check"></i> Atur Cara Majlis</h3>
+                <ul id="tentative-list" class="tentative-list">
+                    <!-- Injected via JavaScript -->
+                </ul>
+            </div>
+
+            <!-- Location Card -->
+            <div class="info-card">
+                <h3><i class="fa-solid fa-location-dot"></i> Lokasi Majlis</h3>
                 <p><strong id="info-hall"></strong></p>
                 <p id="info-address"></p>
                 <div class="map-buttons">
@@ -78,6 +94,7 @@
                     </a>
                 </div>
             </div>
+
             <a id="link-calendar" href="#" target="_blank" class="btn-outline">
                 <i class="fa-regular fa-calendar-plus"></i> Simpan ke Kalendar
             </a>

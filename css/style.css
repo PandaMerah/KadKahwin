@@ -164,3 +164,65 @@ h1, h2, h3 {
     font-size: 0.8rem;
     color: #888;
 }
+
+.host-names {
+    font-size: 1.05rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.couple-full-names {
+    background: #FAF6F0;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.full-name-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 4px 0;
+}
+
+.ampersand-sm {
+    font-family: 'Alex Brush', cursive;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.tentative-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+    text-align: left;
+}
+
+.tentative-item {
+    padding: 10px 0;
+    border-bottom: 1px dashed #E0E0E0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.tentative-item:last-child {
+    border-bottom: none;
+}
+
+.tentative-time {
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.tentative-event {
+    font-size: 0.95rem;
+}
+
+.tentative-loc {
+    font-size: 0.85rem;
+    color: #666;
+}

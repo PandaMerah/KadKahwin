@@ -2,57 +2,58 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // --- 1. INJECT CONFIG DATA INTO HTML ---
     function populateConfigData() {
-    const config = getWeddingConfig();
+        const config = getWeddingConfig();
 
-    document.getElementById('page-title').innerText = `Walimatulurus | ${config.shortName}`;
-    document.getElementById('cover-names').innerText = config.shortName;
-    document.getElementById('cover-date').innerText = config.dateDisplay;
-    
-    document.getElementById('hero-names').innerHTML = `${config.groom} <br><span class="ampersand">&</span><br> ${config.bride}`;
-    document.getElementById('hero-date').innerText = config.dateDisplay;
-    
-    document.getElementById('info-date').innerText = config.dateDisplay;
-    document.getElementById('info-time').innerText = config.timeDisplay;
-    
-    // Inject Hosts & Special Invitations
-    const inviteSection = document.getElementById('invite-hosts');
-    if (inviteSection) {
-        inviteSection.innerHTML = `
-            <p><strong>MENGUNDANG:</strong><br>${config.host}</p>
-            ${config.specialInvite ? `<p style="margin-top:8px;"><strong>TURUT MENGUNDANG:</strong><br>${config.specialInvite}</p>` : ''}
-        `;
+        // Page titles & Overlay
+        document.getElementById('page-title').innerText = `Walimatulurus | ${config.shortName}`;
+        document.getElementById('cover-names').innerText = config.shortName;
+        document.getElementById('cover-date').innerText = config.dateDisplay;
+        
+        // Hero Names
+        document.getElementById('hero-names').innerHTML = `${config.groom} <br><span class="ampersand">&</span><br> ${config.bride}`;
+        document.getElementById('hero-date').innerText = config.dateDisplay;
+        
+        // Full Names & Hosts
+        document.getElementById('groom-full-name').innerText = config.groomFullName;
+        document.getElementById('bride-full-name').innerText = config.brideFullName;
+        document.getElementById('host-father').innerText = config.hostFather;
+        document.getElementById('host-son').innerText = `${config.hostSon} (Anak)`;
+
+        // Atur Cara Majlis (Tentative) List
+        const tentativeList = document.getElementById('tentative-list');
+        if (tentativeList && config.tentative) {
+            tentativeList.innerHTML = config.tentative.map(item => `
+                <li class="tentative-item">
+                    <span class="tentative-time"><i class="fa-regular fa-clock"></i> ${item.time}</span>
+                    <span class="tentative-event"><strong>${item.event}</strong></span>
+                    <span class="tentative-loc">${item.location}</span>
+                </li>
+            `).join('');
+        }
+
+        // Location & Maps
+        document.getElementById('info-hall').innerText = config.hallName;
+        document.getElementById('info-address').innerText = config.hallAddress;
+        document.getElementById('link-google').href = config.mapLinks.google;
+        document.getElementById('link-waze').href = config.mapLinks.waze;
+        document.getElementById('link-calendar').href = config.mapLinks.calendar;
+
+        // Contacts
+        const contactContainer = document.getElementById('contact-list-container');
+        if (contactContainer) {
+            contactContainer.innerHTML = config.contacts.map(contact => `
+                <a href="https://wa.me/${contact.phone}?text=Assalamualaikum" target="_blank" class="contact-item">
+                    <span>${contact.name}</span>
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            `).join('');
+        }
+
+        // Bank Details
+        document.getElementById('bank-name').innerText = config.bank.name;
+        document.getElementById('bank-acc').innerText = config.bank.accountNo;
+        document.getElementById('bank-holder').innerText = config.bank.accountHolder;
     }
-
-    document.getElementById('info-address').innerText = config.hallAddress;
-    
-    document.getElementById('link-google').href = config.mapLinks.google;
-    document.getElementById('link-waze').href = config.mapLinks.waze;
-    document.getElementById('link-calendar').href = config.mapLinks.calendar;
-
-    // Inject Contacts
-    const contactContainer = document.getElementById('contact-list-container');
-    if (contactContainer) {
-        contactContainer.innerHTML = config.contacts.map(contact => `
-            <a href="https://wa.me/${contact.phone}?text=Assalamualaikum" target="_blank" class="contact-item">
-                <span>${contact.name}</span>
-                <i class="fa-brands fa-whatsapp"></i>
-            </a>
-        `).join('');
-    }
-
-    // Inject Bank Info
-    document.getElementById('bank-name').innerText = config.bank.name;
-    document.getElementById('bank-acc').innerText = config.bank.accountNo;
-    document.getElementById('bank-holder').innerText = config.bank.accountHolder;
-
-    const copyBtn = document.getElementById('btn-copy-acc');
-    if (copyBtn) {
-        copyBtn.onclick = () => {
-            navigator.clipboard.writeText(config.bank.accountNo);
-            alert('No Akaun Disalin!');
-        };
-    }
-}
     
     // Run the populator
     populateConfigData();
