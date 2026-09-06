@@ -31,8 +31,8 @@ const defaultConfig = {
     
     // Contacts
     contacts: [
-        { name: "Hamzah Bin Selamat", phone: "60123456789" },
-        { name: "Muhammad Suffian", phone: "60198765432" }
+        { name: "Norhafizah Binti Hamzah (Pengantin Perempuan)", phone: "601123885567" },
+        { name: "Muhammad Suffian (Anak)", phone: "601139970412" }
     ],
 
     // Bank
