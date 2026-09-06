@@ -2,45 +2,57 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // --- 1. INJECT CONFIG DATA INTO HTML ---
     function populateConfigData() {
-        document.getElementById('page-title').innerText = `Walimatulurus | ${weddingInfo.shortName}`;
-        document.getElementById('cover-names').innerText = weddingInfo.shortName;
-        document.getElementById('cover-date').innerText = weddingInfo.dateDisplay;
-        
-        document.getElementById('hero-names').innerHTML = `${weddingInfo.groom} <br><span class="ampersand">&</span><br> ${weddingInfo.bride}`;
-        document.getElementById('hero-date').innerText = weddingInfo.dateDisplay;
-        
-        document.getElementById('info-date').innerText = weddingInfo.dateDisplay;
-        document.getElementById('info-time').innerText = weddingInfo.timeDisplay;
-        document.getElementById('info-arrival').innerText = weddingInfo.brideArrival;
-        
-        document.getElementById('info-hall').innerText = weddingInfo.hallName;
-        document.getElementById('info-address').innerText = weddingInfo.hallAddress;
-        
-        document.getElementById('link-google').href = weddingInfo.mapLinks.google;
-        document.getElementById('link-waze').href = weddingInfo.mapLinks.waze;
-        document.getElementById('link-calendar').href = weddingInfo.mapLinks.calendar;
+    const config = getWeddingConfig();
 
-        // Populate Contacts
-        const contactContainer = document.getElementById('contact-list-container');
-        contactContainer.innerHTML = weddingInfo.contacts.map(contact => `
+    document.getElementById('page-title').innerText = `Walimatulurus | ${config.shortName}`;
+    document.getElementById('cover-names').innerText = config.shortName;
+    document.getElementById('cover-date').innerText = config.dateDisplay;
+    
+    document.getElementById('hero-names').innerHTML = `${config.groom} <br><span class="ampersand">&</span><br> ${config.bride}`;
+    document.getElementById('hero-date').innerText = config.dateDisplay;
+    
+    document.getElementById('info-date').innerText = config.dateDisplay;
+    document.getElementById('info-time').innerText = config.timeDisplay;
+    
+    // Inject Hosts & Special Invitations
+    const inviteSection = document.getElementById('invite-hosts');
+    if (inviteSection) {
+        inviteSection.innerHTML = `
+            <p><strong>MENGUNDANG:</strong><br>${config.host}</p>
+            ${config.specialInvite ? `<p style="margin-top:8px;"><strong>TURUT MENGUNDANG:</strong><br>${config.specialInvite}</p>` : ''}
+        `;
+    }
+
+    document.getElementById('info-address').innerText = config.hallAddress;
+    
+    document.getElementById('link-google').href = config.mapLinks.google;
+    document.getElementById('link-waze').href = config.mapLinks.waze;
+    document.getElementById('link-calendar').href = config.mapLinks.calendar;
+
+    // Inject Contacts
+    const contactContainer = document.getElementById('contact-list-container');
+    if (contactContainer) {
+        contactContainer.innerHTML = config.contacts.map(contact => `
             <a href="https://wa.me/${contact.phone}?text=Assalamualaikum" target="_blank" class="contact-item">
                 <span>${contact.name}</span>
                 <i class="fa-brands fa-whatsapp"></i>
             </a>
         `).join('');
-
-        // Populate Bank Info
-        document.getElementById('bank-name').innerText = weddingInfo.bank.name;
-        document.getElementById('bank-acc').innerText = weddingInfo.bank.accountNo;
-        document.getElementById('bank-holder').innerText = weddingInfo.bank.accountHolder;
-
-        document.getElementById('footer-year').innerText = new Date().getFullYear();
-
-        document.getElementById('btn-copy-acc').addEventListener('click', () => {
-            navigator.clipboard.writeText(weddingInfo.bank.accountNo);
-            alert('No Akaun Disalin!');
-        });
     }
+
+    // Inject Bank Info
+    document.getElementById('bank-name').innerText = config.bank.name;
+    document.getElementById('bank-acc').innerText = config.bank.accountNo;
+    document.getElementById('bank-holder').innerText = config.bank.accountHolder;
+
+    const copyBtn = document.getElementById('btn-copy-acc');
+    if (copyBtn) {
+        copyBtn.onclick = () => {
+            navigator.clipboard.writeText(config.bank.accountNo);
+            alert('No Akaun Disalin!');
+        };
+    }
+}
     
     // Run the populator
     populateConfigData();
